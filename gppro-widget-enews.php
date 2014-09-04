@@ -4,7 +4,7 @@ Plugin Name: Genesis Design Palette Pro - eNews Widget
 Plugin URI: http://genesisdesignpro.com
 Description: Genesis Design Palette Pro add-on for styling the Genesis eNews Extended widget.
 Author: Reaktiv Studios
-Version: 1.0.1
+Version: 1.0.2
 Requires at least: 3.5
 Author URI: http://reaktivstudios.com
 */
@@ -33,7 +33,7 @@ if ( ! defined( 'GPWEN_DIR' ) ) {
 }
 
 if ( ! defined( 'GPWEN_VER' ) ) {
-	define( 'GPWEN_VER', '1.0.1' );
+	define( 'GPWEN_VER', '1.0.2' );
 }
 
 class GP_Pro_Widget_Enews {
@@ -69,9 +69,6 @@ class GP_Pro_Widget_Enews {
 
 		// Override default checks
 		add_filter(	'gppro_compare_default',			array(	$this,	'override_default_check'		)			);
-
-		// GP Pro CSS build filters
-		add_filter(	'gppro_css_builder',				array(	$this,	'enews_widget_css'				),	10,	3	);
 
 		// activation hooks
 		register_deactivation_hook( __FILE__,			array(	$this,	'enews_clear_check'				)			);
@@ -150,7 +147,7 @@ class GP_Pro_Widget_Enews {
 	/**
 	 * Check for valid Design Palette Pro Version
 	 *
-	 * Requires version 1.2.5+
+	 * Requires version 1.3.0+
 	 *
 	 * @since 1.0.1
 	 *
@@ -159,9 +156,9 @@ class GP_Pro_Widget_Enews {
 
 		$dpp_version = defined( 'GPP_VER' ) ? GPP_VER : 0;
 
-		if ( version_compare( $dpp_version, '1.2.5', '<' ) ) {
+		if ( version_compare( $dpp_version, '1.3.0', '<' ) ) {
 			printf(
-				'<div class="updated"><p>' . esc_html__( 'Please upgrade %2$sDesign Palette Pro to version 1.2.5 or greater%3$s to continue using the %1$s extension.', 'gppro' ) . '</p></div>',
+				'<div class="updated"><p>' . esc_html__( 'Please upgrade %2$sDesign Palette Pro to version 1.3.0 or greater%3$s to continue using the %1$s extension.', 'gppro' ) . '</p></div>',
 				'<strong>' . 'Genesis Design Palette Pro - eNews Widget' . '</strong>',
 				'<a href="' . esc_url( admin_url( 'plugins.php?plugin_status=upgrade' ) ) . '">',
 				'</a>'
@@ -180,8 +177,9 @@ class GP_Pro_Widget_Enews {
 
 		$screen = get_current_screen();
 
-		if ( $screen->base !== 'genesis_page_genesis-palette-pro' )
+		if ( $screen->base !== 'genesis_page_genesis-palette-pro' ) {
 			return;
+		}
 
 		// get our Genesis Plugin dependency name
 		$plugininfo	= self::plugin_info();
