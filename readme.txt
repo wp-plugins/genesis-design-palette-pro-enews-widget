@@ -1,8 +1,8 @@
 === Genesis Design Palette Pro - eNews Widget ===
 Contributors: norcross, jjeaton, reaktivstudios
-Requires at least: 3.5
+Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,10 @@ Genesis Design Palette Pro add-on for the Genesis eNews Extended widget. Provide
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.3: 2014-10-17 =
+
+* Added support for Beautiful Pro, Lifestyle Pro, and Daily Dish Pro
 
 = 1.0.2: 2014-09-03 =
 
