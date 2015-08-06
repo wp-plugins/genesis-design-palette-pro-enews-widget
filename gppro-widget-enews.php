@@ -4,7 +4,7 @@ Plugin Name: Genesis Design Palette Pro - eNews Widget
 Plugin URI: http://genesisdesignpro.com
 Description: Genesis Design Palette Pro add-on for styling the Genesis eNews Extended widget.
 Author: Reaktiv Studios
-Version: 1.0.4
+Version: 1.0.5
 Requires at least: 3.8
 Author URI: http://reaktivstudios.com
 */
@@ -35,7 +35,7 @@ if ( ! defined( 'GPWEN_DIR' ) ) {
 }
 
 if ( ! defined( 'GPWEN_VER' ) ) {
-	define( 'GPWEN_VER', '1.0.4' );
+	define( 'GPWEN_VER', '1.0.5' );
 }
 
 class GP_Pro_Widget_Enews {
@@ -173,13 +173,13 @@ class GP_Pro_Widget_Enews {
 		$plugin = defined( 'GPP_VER' ) ? GPP_VER : 0;
 
 		// Check against our version of DPP.
-		if ( version_compare( $plugin, '1.3.0', '>=' ) >= 0 ) {
+		if ( version_compare( $plugin, '1.3.13', '>=' ) >= 0 ) {
 			return;
 		}
 
 		// Output the message regarding updates.
 		printf(
-			'<div class="updated"><p>' . esc_html__( 'Please upgrade %2$sDesign Palette Pro to version 1.3.0 or greater%3$s to continue using the %1$s extension.', 'gppro' ) . '</p></div>',
+			'<div class="updated"><p>' . esc_html__( 'Please upgrade %2$sDesign Palette Pro to version 1.3.13 or greater%3$s to continue using the %1$s extension.', 'gppro' ) . '</p></div>',
 			'<strong>' . 'Genesis Design Palette Pro - eNews Widget' . '</strong>',
 			'<a href="' . esc_url( admin_url( 'plugins.php?plugin_status=upgrade' ) ) . '">',
 			'</a>'
